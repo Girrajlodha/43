@@ -23,9 +23,9 @@ function setup() {
     createCanvas(1200,500);
   
   //creating background sprite
-    backgroundy= createSprite (200,200);
-    backgroundy.addImage ("backgroundimage", backgroundImage);
-    backgroundy.velocityX= -2;
+   // backgroundy= createSprite (200,200);
+   // backgroundy.addImage ("backgroundimage", backgroundImage);
+   // backgroundy.velocityX= -2;
     
   //creating monkey sprite
     monkey= createSprite (50,340,10,10);
@@ -43,14 +43,14 @@ function setup() {
 
 function draw() {
   //assigning background color
-    background("white");
+    background(backgroundImage);
   
   //to know the position of monkey to make more changes
-    console.log(monkey.y);
+ 
   
   //reseting background
-    if (backgroundy.x<150) {
-      backgroundy.x= 200
+    if (background.x<150) {
+      background.x= 200
     }   
   
   //making the monkey jump  
@@ -98,7 +98,7 @@ function draw() {
   //displaying score
     stroke ("white");
     textSize (15);
-    text ("Score: "+score,190,70);  
+    text ("Score: "+score,190,60);  
 }
 
 //function for bananas
@@ -131,11 +131,10 @@ function spawnObstacles () {
 }
 
 function gameend(){
-  gameover.addImage(gameoverimg)
-  gameover.x=600
-  gameover.y=300
+  textSize(40)
+  fill("red")
+  text("Game Over",300,250)
   monkey.scale= 0.1;
   score= 0;
-  obtacleGroup.setLifetimeEach(-1)
   obstacleGroup.setVelocityXEach(0)
 }
